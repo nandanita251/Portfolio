@@ -11,7 +11,7 @@ A modern, responsive portfolio website built with **React**, **Vite**, and **Tai
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=white)
 
-🌐 **Live Demo:** https://your-portfolio.vercel.app
+🌐 **Live Demo:** https://portfolio-m2if.vercel.app/
 
 </div>
 
