@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Keep all your other custom @layer base styles below here! */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Apple-style typography rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  body {
+    @apply bg-background text-textPrimary font-sans overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-accent;
+  }
+
+  /* Linear/Vercel inspired invisible-until-hover scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/5 rounded-full border border-white/5 transition-colors duration-300;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/20;
+  }
+}
+
+@layer components {
+  /* --- Apple/Framer Inspired Glassmorphism --- */
+  .glass-panel {
+    @apply bg-glass-gradient backdrop-blur-xl border border-surfaceBorder rounded-2xl shadow-glass ;
+  }
+
+  /* --- Linear Inspired Interactive Cards --- */
+  .interactive-card {
+    @apply glass-panel transition-all duration-500 ease-out 
+           hover:-translate-y-1.5 hover:shadow-soft-glow hover:border-accent/30 hover:bg-white/5;
+  }
+
+  /* --- Typography Utilities --- */
+  .text-gradient {
+    @apply bg-purple-gradient bg-clip-text text-transparent;
+  }
+  
+  .heading-xl {
+    @apply text-5xl md:text-7xl font-bold tracking-tight text-white;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-5xl font-bold tracking-tight text-white;
+  }
+
+  /* --- Reusable Button System --- */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-8 py-3.5 font-medium text-white 
+           transition-all duration-300 ease-out bg-purple-gradient rounded-xl shadow-soft-glow 
+           hover:scale-[1.02] hover:shadow-[0_10px_40px_-10px_rgba(139,92,246,0.5)] active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 font-medium text-textPrimary 
+           transition-all duration-300 ease-out bg-surface border border-surfaceBorder rounded-xl 
+           hover:bg-white/10 hover:border-white/20 active:scale-95 shadow-glass;
+  }
+}
+
+@layer utilities {
+  /* Beautiful fading mask for background grids/glows */
+  .mask-radial-faded {
+    mask-image: radial-gradient(circle at center, black, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black, transparent 70%);
+  }
+  
+  /* Hide scrollbar completely but maintain functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
